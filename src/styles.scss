@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        color: lightseagreen;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.font-3rem {
+    font-size: 3rem;
+}
+.font-small {
+    font-size: small;
+}
+
+.red {
+    color: red;
+}
+
+.bg-gold {
+    background-color: gold;
+}
+
+.btn {
+    background-color: dodgerblue;
+    border: none;
+    color: white;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &.btn:hover {
+        background-color: royalblue;
+    }
+}
+

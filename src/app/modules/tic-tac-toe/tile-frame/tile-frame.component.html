@@ -1,0 +1,45 @@
+<!-- Game board wrapper-->
+<div class="game-board">
+
+    <!-- Player Info / Game Status / Reset Game -->
+    <div class="tile-frame bg-gold">
+
+        <!-- 1st Column: Show Winner / Tie or Continue Playing -->
+        <div *ngIf="winner || gameTie; else continuePlaying" class="red text-bold text-center">
+            {{ winner ? 'WINNER' : "IT'S A TIE"}}
+        </div>
+        <ng-template #continuePlaying>
+            <div class="text-center">
+                Next Player: <span class="text-bold">{{nextPlayer}}</span>
+            </div>
+        </ng-template>
+
+        <!-- 2nd Column: Display Winner -->
+        <div *ngIf="winner" class="text-center">
+            <i class="fa fa-trophy"></i> 
+            Player <span class="text-bold">{{winner}}</span> wins!
+            <i class="fa fa-trophy"></i> 
+        </div>
+        <div *ngIf="gameTie" class="text-center">
+            No winner
+        </div>
+
+        <!-- Game Reset Button -->
+        <button (click)="resetGame()" class="btn">
+            <i class="fa fa-refresh"></i>
+            Reset Game
+        </button>
+
+    </div>
+    
+    <!-- 3x3 tiles -->
+    <div class="tile-frame">
+        <app-tile *ngFor="let tile of tiles; let i=index" 
+            (click)="onTileClick(i)" 
+            [playerMark]="tile"
+            [winnerTile]="!!winner && isWinningTile(i)"
+            >
+        </app-tile>
+    </div>
+   
+</div>
